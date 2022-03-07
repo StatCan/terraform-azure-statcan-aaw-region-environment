@@ -21,18 +21,3 @@ resource "azurerm_role_assignment" "network_rg_owner_ci" {
   role_definition_name = "Owner"
   principal_id         = data.azurerm_client_config.current.object_id
 }
-
-
-###########################################################
-# NETWORK WATCHER
-###########################################################
-resource "azurerm_network_watcher" "network_watcher" {
-  name                = "${local.prefix}-nw"
-  location            = var.azure_region
-  resource_group_name = azurerm_resource_group.network.name
-  tags                = local.azure_tags
-
-  lifecycle {
-    ignore_changes = [tags.DateCreatedModified]
-  }
-}
