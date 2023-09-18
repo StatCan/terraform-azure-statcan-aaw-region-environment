@@ -7,10 +7,6 @@ resource "azurerm_resource_group" "network" {
   name     = "${local.prefix}-rg-network"
   location = var.azure_region
   tags     = local.azure_tags
-
-  lifecycle {
-    ignore_changes = [tags.DateCreatedModified]
-  }
 }
 
 # The principal running the terraform needs to be
