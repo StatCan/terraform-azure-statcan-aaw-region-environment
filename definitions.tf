@@ -11,10 +11,10 @@ locals {
 
   // Azure tags
   azure_tags = merge(
-    var.tags,
+    var.azure_tags,
     {
       ModuleName    = "terraform-azure-statcan-aaw-region-environment",
-      ModuleVersion = "2.0.2",
+      ModuleVersion = "2.0.3",
     }
   )
 }
